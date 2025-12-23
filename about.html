@@ -1,1 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Joseph Gibbs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e4e4e7;
+            background: #0a0a0b;
+        }
+        
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 0 20px;
+        }
+        
+        nav a {
+            color: #e4e4e7;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #22c55e;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #22c55e;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f4c3a 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+        }
+        
+        .page-header h1 {
+            font-size: 2.5em;
+            position: relative;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            margin: 40px 0;
+            padding: 50px;
+            border-radius: 16px;
+            border: 1px solid rgba(34, 197, 94, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        
+        h2 {
+            color: #22c55e;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #22c55e, transparent);
+        }
+        
+        section p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+        
+        .experience-item {
+            margin-bottom: 35px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid rgba(34, 197, 94, 0.1);
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .experience-item h3 {
+            color: #f1f5f9;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+        
+        .experience-meta {
+            color: #22c55e;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .experience-date {
+            color: #94a3b8;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .experience-item li {
+            color: #cbd5e1;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.7;
+        }
+        
+        .experience-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-size: 1.2em;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .skill-category {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(34, 197, 94, 0.5);
+            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.15);
+        }
+        
+        .skill-category h3 {
+            color: #22c55e;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .skill-category li {
+            padding: 8px 0;
+            color: #94a3b8;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .skill-category li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+        }
+        
+        .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .education-item h3 {
+            color: #f1f5f9;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        
+        .education-meta {
+            color: #22c55e;
+            font-size: 0.95em;
+            margin-bottom: 3px;
+        }
+        
+        .education-details {
+            color: #94a3b8;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(34, 197, 94, 0.1);
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2em;
+            }
+            
+            section {
+                padding: 30px 25px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="salton-sea.html">Salton Sea Project</a></li>
+            <li><a href="riparian-vegetation.html">Riparian Vegetation</a></li>
+            <li><a href="land-cover.html">Land Cover Mapping</a></li>
+            <li><a href="socal-history.html">SoCal History</a></li>
+        </ul>
+    </nav>
 
+    <div class="page-header">
+        <h1>About Me</h1>
+    </div>
+
+    <div class="container">
+        <section id="bio">
+            <h2>Professional Summary</h2>
+            <p>Environmental scientist with a background in biology and advanced skills in GIS, Python, and R. Experienced in ecological and hydrological analysis through collaborations with governmental and non-profit partners. Passionate about applying expertise in remote sensing and geospatial technology to support environmental decision-making and water resource management.</p>
+            <p>Born and raised in the Imperial Valley, I have a deep connection to Southern California's environmental challenges and history. Currently based in San Diego, I'm expanding my technical expertise through advanced GIS certification while working on personal and professional projects focused on water resources, conservation, and environmental monitoring.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Geospatial Analyst</h3>
+                <div class="experience-meta">NASA DEVELOP Program</div>
+                <div class="experience-date">September 2024 - April 2025</div>
+                <ul>
+                    <li>Leveraged ArcGIS Pro and Python to conduct and automate hydrological analysis of South African rivers and riparian zones</li>
+                    <li>Coordinated logistics, ensuring the timely delivery of geospatial recommendations to stakeholders</li>
+                    <li>Led national stream order analysis and mapped 11,800 km² of riparian vegetation, automating classification workflows using Python scripting</li>
+                    <li>Conducted precipitation modeling through Empirical Bayesian Kriging Regression</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Substitute Teacher</h3>
+                <div class="experience-meta">Various School Districts</div>
+                <div class="experience-date">2024 - Present</div>
+                <ul>
+                    <li>Delivered instruction across multiple grade levels and subjects, adapting to diverse classroom environments</li>
+                    <li>Demonstrated strong communication skills and ability to quickly build rapport with students and staff</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Undergraduate Researcher</h3>
+                <div class="experience-meta">Abrahms Lab at the University of Washington</div>
+                <div class="experience-date">October 2022 - June 2024</div>
+                <ul>
+                    <li>Analyzed accelerometer and observational data in Excel and R to build labeled training sets for machine learning models predicting lion and African wild dog behavior</li>
+                    <li>Contributed to reports and proposals related to global change ecology and methods in field ecology; applied scientific writing skills to communicate results</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Curatorial Assistant for the Genetic Resource Collection</h3>
+                <div class="experience-meta">Burke Museum of Natural History</div>
+                <div class="experience-date">March 2022 - June 2024</div>
+                <ul>
+                    <li>Cataloged and labeled tissue samples, organizing them in cold storage for accurate retrieval and tracking</li>
+                    <li>Prepared and shipped specimens under lab-safety protocols supporting genomic and species-conservation studies</li>
+                    <li>Engaged with the community, leading events for the public to explain the importance of the Collection</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education & Certifications</h2>
+            
+            <div class="education-item">
+                <h3>University of Washington</h3>
+                <div class="education-meta">Bachelor of Science, Biology</div>
+                <div class="education-details">Graduated June 2024 | GPA: 3.87<br>
+                Minor in Data Science<br>
+                Minor in Environmental Science and Resource Management</div>
+            </div>
+
+            <div class="education-item">
+                <h3>Palomar College</h3>
+                <div class="education-meta">Associate of Science, Advanced GIS</div>
+                <div class="education-details">In Progress | Expected June 2026</div>
+            </div>
+
+            <div class="education-item">
+                <h3>Coursera</h3>
+                <div class="education-meta">Python Series Certificate of Achievement</div>
+                <div class="education-details">Completed October 2024</div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>GIS & Remote Sensing</h3>
+                    <ul>
+                        <li>ArcGIS Pro</li>
+                        <li>QGIS</li>
+                        <li>Google Earth Engine</li>
+                        <li>ENVI</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python (NumPy, GeoPandas, GDAL, ArcPy)</li>
+                        <li>R (dismo, tidyverse, sf)</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Research & Analysis</h3>
+                    <ul>
+                        <li>Hydrological Analysis</li>
+                        <li>Machine Learning</li>
+                        <li>Statistical Analysis</li>
+                        <li>Technical Writing</li>
+                        <li>Environmental Sampling</li>
+                        <li>Field Ecology</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Joseph Gibbs. Built with GitHub Pages.</p>
+    </footer>
+</body>
+</html>
