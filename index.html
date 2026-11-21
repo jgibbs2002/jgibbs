@@ -3,327 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joseph Gibbs - Environmental Scientist</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #e4e4e7;
-            background: #0a0a0b;
-        }
-        
-        nav {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(34, 197, 94, 0.2);
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            padding: 0 20px;
-        }
-        
-        nav a {
-            color: #e4e4e7;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95em;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #22c55e;
-            transition: width 0.3s ease;
-        }
-        
-        nav a:hover {
-            color: #22c55e;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        header {
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('IMG_2458.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 140px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(34, 197, 94, 0.15) 0%, transparent 50%);
-        }
-        
-        header h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            position: relative;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-        
-        header p {
-            font-size: 1.3em;
-            opacity: 0.9;
-            position: relative;
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
-        
-        header .tagline {
-            font-size: 1.1em;
-            opacity: 0.7;
-            position: relative;
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        section {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            margin: 40px 0;
-            padding: 50px;
-            border-radius: 16px;
-            border: 1px solid rgba(34, 197, 94, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
-        
-        h2 {
-            color: #22c55e;
-            margin-bottom: 30px;
-            font-size: 2em;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #22c55e, transparent);
-        }
-        
-        section p {
-            color: #cbd5e1;
-            line-height: 1.8;
-            font-size: 1.05em;
-        }
-        
-        .project-card {
-            background: rgba(15, 23, 42, 0.6);
-            padding: 35px;
-            margin-bottom: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, #22c55e, #16a34a);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateX(8px);
-            border-color: rgba(34, 197, 94, 0.4);
-            box-shadow: 0 12px 40px rgba(34, 197, 94, 0.2);
-        }
-        
-        .project-card:hover::before {
-            transform: scaleY(1);
-        }
-        
-        .project-card h3 {
-            color: #f1f5f9;
-            margin-bottom: 12px;
-            font-size: 1.4em;
-            font-weight: 600;
-        }
-        
-        .project-card p {
-            color: #94a3b8;
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-        
-        .project-card strong {
-            color: #cbd5e1;
-        }
-        
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .project-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.4);
-        }
-        
-        .contact {
-            text-align: center;
-        }
-        
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-links a {
-            color: #22c55e;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 500;
-            padding: 12px 24px;
-            border: 2px solid rgba(34, 197, 94, 0.3);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-links a:hover {
-            background: rgba(34, 197, 94, 0.1);
-            border-color: #22c55e;
-            transform: translateY(-2px);
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #64748b;
-            font-size: 0.9em;
-            border-top: 1px solid rgba(34, 197, 94, 0.1);
-            margin-top: 60px;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            
-            header {
-                padding: 100px 20px;
-            }
-            
-            section {
-                padding: 30px 25px;
-            }
-            
-            nav ul {
-                gap: 20px;
-            }
-        }
-    </style>
+    <title>Joseph Gibbs | Environmental Scientist &amp; GIS Analyst</title>
+    <meta name="description" content="Portfolio of Joseph Gibbs: environmental scientist and GIS analyst working on remote sensing, water resources and conservation technology.">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Joseph Gibbs | Environmental Scientist &amp; GIS Analyst">
+    <meta property="og:description" content="GIS, remote sensing and Python for environmental problems: Salton Sea monitoring, NASA DEVELOP projects and more.">
+    <meta property="og:image" content="IMG_2458.jpg">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%2322c55e'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Main">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="about.html">About Me</a></li>
-            <li><a href="https://arcg.is/1CanWe5" target="_blank">Salton Sea Project</a></li>
-            <li><a href="https://arcg.is/0XiqeW1" target="_blank">Land Cover Mapping (Puerto Rico)</a></li>
+            <li><a href="https://arcg.is/1CanWe5" target="_blank" rel="noopener noreferrer">Salton Sea Project</a></li>
+            <li><a href="https://arcg.is/0XiqeW1" target="_blank" rel="noopener noreferrer">Land Cover Mapping (Puerto Rico)</a></li>
         </ul>
     </nav>
 
-    <header>
+    <header class="hero">
         <h1>Joseph Gibbs</h1>
-        <p>Environmental Scientist | GIS Analyst | Python Developer</p>
+        <p class="role">Environmental Scientist | GIS Analyst | Python Developer</p>
         <p class="tagline">Leveraging geospatial technology to address environmental challenges</p>
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View projects</a>
+            <a class="btn btn-ghost" href="about.html">About me</a>
+        </div>
     </header>
 
-    <div class="container">
+    <main id="main" class="container">
         <section id="about">
             <h2>Welcome</h2>
-            <p>I'm an early-career biologist/environmental scientist passionate about using GIS and data science to solve complex environmental problems. Currently based in San Diego, I focus on water resource management, remote sensing analysis, and conservation technology.</p>
+            <p>I'm an early-career biologist and environmental scientist passionate about using GIS and data science to solve complex environmental problems. Currently based in San Diego, I focus on water resource management, remote sensing analysis, and conservation technology.</p>
         </section>
 
         <section id="projects">
             <h2>Featured Projects</h2>
-            
-            <div class="project-card">
-                <h3>Salton Sea Surface Water Monitoring</h3>
-                <p><strong>Personal Portfolio Project</strong></p>
-                <p>Developed an automated methodology using Python and ArcGIS to track annual changes in the Salton Sea's surface area and surrounding vegetation conditions. Utilizing multi-temporal remote sensing analysis to monitor one of California's critical environmental challenges.</p>
-                <a href="https://arcg.is/1CanWe5" class="project-link" target="_blank">Learn More →</a>
-            </div>
-            
-            <div class="project-card">
-                <h3>Riparian Vegetation Analysis - South Africa</h3>
-                <p><strong>NASA DEVELOP Program</strong></p>
-                <p>Led geospatial analysis to map 11,800 km² of riparian vegetation across South Africa. Conducted national stream order analysis and automated classification workflows using Python scripting.</p>
-            </div>
 
-            <div class="project-card">
-                <h3>Land Cover Mapping - Puerto Rico</h3>
-                <p><strong>NASA DEVELOP Program</strong></p>
+            <article class="project-card">
+                <h3>Salton Sea Surface Water Monitoring</h3>
+                <p class="org">Personal Portfolio Project</p>
+                <p>Developed an automated methodology using Python and ArcGIS to track annual changes in the Salton Sea's surface area and surrounding vegetation conditions. Used multi-temporal remote sensing analysis to monitor one of California's critical environmental challenges.</p>
+                <ul class="chips" aria-label="Project highlights">
+                    <li class="stat">1984&ndash;2025 Landsat record</li>
+                    <li>Python</li>
+                    <li>ArcGIS Pro</li>
+                    <li>NDWI</li>
+                </ul>
+                <a href="https://arcg.is/1CanWe5" class="project-link" target="_blank" rel="noopener noreferrer">View the Salton Sea story <span aria-hidden="true">&rarr;</span></a>
+            </article>
+
+            <article class="project-card">
+                <h3>Riparian Vegetation Analysis &ndash; South Africa</h3>
+                <p class="org">NASA DEVELOP Program</p>
+                <p>Led geospatial analysis to map 11,800 km² of riparian vegetation across South Africa. Conducted national stream order analysis and automated classification workflows using Python scripting.</p>
+                <ul class="chips" aria-label="Project highlights">
+                    <li class="stat">11,800 km² mapped</li>
+                    <li>Python</li>
+                    <li>ArcGIS Pro</li>
+                    <li>Stream order analysis</li>
+                </ul>
+            </article>
+
+            <article class="project-card">
+                <h3>Land Cover Mapping &ndash; Puerto Rico</h3>
+                <p class="org">NASA DEVELOP Program</p>
                 <p>Created comprehensive land cover maps analyzing change across Puerto Rico, mapping 17 distinct classes using machine learning algorithms and environmental variables.</p>
-                <a href="https://arcg.is/0XiqeW1" class="project-link">Learn More →</a>
-            </div>
+                <ul class="chips" aria-label="Project highlights">
+                    <li class="stat">17 land cover classes</li>
+                    <li>Machine learning</li>
+                    <li>Change detection</li>
+                </ul>
+                <a href="https://arcg.is/0XiqeW1" class="project-link" target="_blank" rel="noopener noreferrer">View the Puerto Rico story <span aria-hidden="true">&rarr;</span></a>
+            </article>
         </section>
 
         <section id="contact" class="contact">
@@ -331,11 +90,14 @@
             <p>I'm always interested in connecting with others working on environmental challenges and geospatial solutions.</p>
             <div class="contact-links">
                 <a href="mailto:joegibbs2002@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/joseph-gibbs-aa3a4a300/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/jgibbs2002" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/joseph-gibbs-aa3a4a300/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/jgibbs2002" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
         </section>
-    </div>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Joseph Gibbs. Built with Git
+        <p>&copy; 2025 Joseph Gibbs. Built with GitHub Pages.</p>
+    </footer>
+</body>
+</html>
